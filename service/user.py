@@ -32,7 +32,7 @@ class UserService:
         self.dao.delete(rid)
 
     def make_password_hash(self, password):
-        return base64.b64decode(hashlib.pbkdf2_hmac(
+        return base64.b64encode(hashlib.pbkdf2_hmac(
             'sha256',
             password.encode('utf-8'),
             PWD_HASH_SALT,
