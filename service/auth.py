@@ -15,7 +15,7 @@ class AuthService:
     def generate_token(self, username, password, is_refresh=False):
         user = self.user_service.get_by_username(username)
 
-        if user in None:
+        if not user:
             raise Exception()
 
         if not is_refresh:
